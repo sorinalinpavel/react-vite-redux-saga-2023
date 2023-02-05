@@ -1,1 +1,1 @@
-export { default as CounterPage } from "./counter";
+export { default as PostsPage } from "./posts";
