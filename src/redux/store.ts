@@ -1,10 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+
 import counterReducer from "../pages/counter/slice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export type AppDispatch = typeof store.dispatch;
