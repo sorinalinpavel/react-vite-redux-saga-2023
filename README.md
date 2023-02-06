@@ -19,3 +19,7 @@ This boilerplate is created using React, Redux, Redux Thunk or Redux saga. Why `
 - Run `yarn` or `npm install`
 - To start the dev server run `yarn dev` or `npm run dev`
 - If you want to prepare a build for production and deploy it, follow the steps from this link: `[✨CLICK ME! :D✨] (https://vitejs.dev/guide/static-deploy.html)`
+
+## Licence
+
+MIT
