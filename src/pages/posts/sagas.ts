@@ -2,7 +2,7 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 
 import { getPostsFailure, getPostsRequest, getPostsSuccess } from "./slice";
 
-import { API_URLS } from "../../_helpers/config";
+import { API_URLS } from "_helpers/config";
 import { IPostsResponse } from "./types";
 import axios, { AxiosResponse } from "axios";
 
