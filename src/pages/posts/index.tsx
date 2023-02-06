@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { useAppDispatch } from "store/hooks";
 import {
@@ -23,6 +24,7 @@ const PostsPage = () => {
 
   return (
     <>
+      <Link to={`/`}>GO HOME</Link>
       {isPostsPenging && <p>Loading...</p>}
       {posts.length !== 0 &&
         posts.map((post: IPosts) => (
