@@ -6,7 +6,7 @@ This boilerplate is created using React, Redux, Redux Thunk or Redux saga. Why `
 
 - ✨Axios request✨
 - ✨Loading state✨
-- ✨List axios request response✨
+- ✨List Axios request response✨
 - ✨Use selectors from `reselect`✨
 - ✨Redux logger✨
 - ✨Vite build and run✨
