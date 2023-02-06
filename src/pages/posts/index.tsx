@@ -24,7 +24,7 @@ const PostsPage = () => {
   return (
     <>
       {isPostsPenging && <p>Loading...</p>}
-      {posts.length &&
+      {posts.length !== 0 &&
         posts.map((post: IPosts) => (
           <div key={post.id}>
             <p>{post.id}</p>
