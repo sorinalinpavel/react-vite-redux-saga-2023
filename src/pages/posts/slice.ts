@@ -1,4 +1,4 @@
-import { IPostsParams, ProductsState } from "./types";
+import { IPostsParams, PostsState } from "./types";
 import {
   PayloadAction,
   Slice,
@@ -6,18 +6,18 @@ import {
   createSlice,
 } from "@reduxjs/toolkit";
 
-const initialState: ProductsState = {
+const initialState: PostsState = {
   posts: [],
   error: "",
   pending: false,
 };
 
 const postsSlice: Slice<
-  ProductsState,
-  SliceCaseReducers<ProductsState>,
-  "posts"
+  PostsState,
+  SliceCaseReducers<PostsState>,
+  "postsSlice"
 > = createSlice({
-  name: "posts",
+  name: "postsSlice",
   initialState,
   reducers: {
     getPostsRequest(state, action: PayloadAction<IPostsParams>) {

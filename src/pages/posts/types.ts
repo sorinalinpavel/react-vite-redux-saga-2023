@@ -1,9 +1,13 @@
-export interface IPostsResponse {
+interface IPosts {
   id: number;
   title: string;
 }
 
-export interface ProductsState {
+export interface IPostsResponse {
+  posts: IPosts[];
+}
+
+export interface PostsState {
   posts: any;
   pending: boolean;
   error: string | null;

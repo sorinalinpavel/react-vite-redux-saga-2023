@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import postsSlice from "../pages/posts/slice";
 
 const rootReducer = combineReducers({
-  posts: postsSlice,
+  postsSlice,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

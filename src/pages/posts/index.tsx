@@ -17,7 +17,7 @@ const PostsPage = () => {
 
   useEffect(() => {
     dispatch(getPostsRequest({ email }));
-  });
+  }, []);
 
   return <div>test</div>;
 };

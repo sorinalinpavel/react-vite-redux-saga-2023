@@ -1,13 +1,12 @@
 import { createSelector } from "reselect";
 
 const getPending = (state: any) => {
-  debugger;
-  return state.posts.pending;
+  return state.postsSlice.pending;
 };
 
-const getPosts = (state: any) => state.posts.posts;
+const getPosts = (state: any) => state.postsSlice.posts;
 
-const getError = (state: any) => state.posts.error;
+const getError = (state: any) => state.postsSlice.error;
 
 export const getPostsSelector = createSelector(getPosts, (posts) => posts);
 

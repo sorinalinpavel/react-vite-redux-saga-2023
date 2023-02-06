@@ -2,7 +2,7 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 
 import { getPostsFailure, getPostsRequest, getPostsSuccess } from "./slice";
 
-import { API_URLS } from "_helpers/config";
+import { API_URLS } from "../../_helpers/config";
 import { IPostsResponse } from "./types";
 import axios, { AxiosResponse } from "axios";
 
@@ -17,9 +17,10 @@ function* getPostsSaga(action: ReturnType<typeof getPostsRequest>) {
       axios.get,
       `${API_URLS.BASE_URL}${API_URLS.POSTS}?email=${encodeURIComponent(email)}`
     );
+    console.log(response.data);
     yield put(
       getPostsSuccess({
-        products: response.data,
+        posts: response.data,
       })
     );
   } catch (e: any) {
@@ -31,10 +32,6 @@ function* getPostsSaga(action: ReturnType<typeof getPostsRequest>) {
   }
 }
 
-/*
-    Starts worker saga on latest dispatched `getPostsRequest` and `postProductsRequest` action.
-    Allows concurrent increments.
-  */
 function* postsSaga() {
   yield all([takeLatest(getPostsRequest, getPostsSaga)]);
 }

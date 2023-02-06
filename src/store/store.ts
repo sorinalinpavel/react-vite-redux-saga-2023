@@ -10,7 +10,6 @@ import { rootSaga } from "./rootSaga";
 const sagaMiddleware = createSagaMiddleware();
 
 // Mount it on the Store
-
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
