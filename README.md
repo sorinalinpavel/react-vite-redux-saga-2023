@@ -11,6 +11,7 @@ This boilerplate is created using React, Redux, Redux Thunk or Redux saga. Why `
 - ✨Redux logger✨
 - ✨Vite build and run✨
 - ✨HMR✨
+- ✨React router 6✨
 
 ## Get started
 
