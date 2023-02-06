@@ -17,7 +17,6 @@ function* getPostsSaga(action: ReturnType<typeof getPostsRequest>) {
       axios.get,
       `${API_URLS.BASE_URL}${API_URLS.POSTS}?email=${encodeURIComponent(email)}`
     );
-    console.log(response.data);
     yield put(
       getPostsSuccess({
         posts: response.data,
