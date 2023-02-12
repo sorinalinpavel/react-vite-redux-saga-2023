@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { List, Spin } from "antd";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useAppDispatch } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
   getPostsPendingSelector,
   getPostsErrorSelector,
@@ -12,10 +12,10 @@ import { getPostsRequest } from "./slice";
 import { IPosts } from "./types";
 
 const PostsPage = () => {
-  const [email, setEmail] = useState("test@test.com");
-  const isPostsPenging = useSelector(getPostsPendingSelector);
-  const postsError = useSelector(getPostsErrorSelector);
-  const posts = useSelector(getPostsSelector);
+  const email = "test@test.com";
+  const isPostsPenging = useAppSelector<boolean>(getPostsPendingSelector);
+  const postsError = useAppSelector(getPostsErrorSelector);
+  const posts = useAppSelector<any>(getPostsSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -25,14 +25,20 @@ const PostsPage = () => {
   return (
     <>
       <Link to={`/`}>GO HOME</Link>
-      {isPostsPenging && <p>Loading...</p>}
-      {posts.length !== 0 &&
-        posts.map((post: IPosts) => (
-          <div key={post.id}>
-            <p>{post.id}</p>
-            <p>{post.title}</p>
-          </div>
-        ))}
+      <Spin tip="Loading" size="large" spinning={isPostsPenging}>
+        <List
+          size="large"
+          header={<div>Example from AntD Header</div>}
+          footer={<div>Example from AntD Footer</div>}
+          bordered
+          dataSource={posts}
+          renderItem={(post: IPosts) => (
+            <List.Item>
+              {post.id} / {post.title}
+            </List.Item>
+          )}
+        />
+      </Spin>
       {postsError && <p>{postsError}</p>}
     </>
   );

@@ -1,4 +1,4 @@
-import { IPostsParams, PostsState } from "./types";
+import { IPostsParams, IPostsResponse, PostsState } from "./types";
 import {
   PayloadAction,
   Slice,
@@ -20,7 +20,7 @@ const postsSlice: Slice<
   name: "postsSlice",
   initialState,
   reducers: {
-    getPostsRequest(state, action: PayloadAction<IPostsParams>) {
+    getPostsRequest(state: PostsState, action: PayloadAction<IPostsParams>) {
       return {
         ...state,
         pending: true,
@@ -28,7 +28,7 @@ const postsSlice: Slice<
         error: null,
       };
     },
-    getPostsSuccess(state, action) {
+    getPostsSuccess(state: PostsState, action: PayloadAction<IPostsResponse>) {
       return {
         ...state,
         pending: false,
@@ -36,7 +36,7 @@ const postsSlice: Slice<
         error: null,
       };
     },
-    getPostsFailure(state, action) {
+    getPostsFailure(state: PostsState, action) {
       return {
         ...state,
         pending: false,
